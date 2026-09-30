@@ -1,0 +1,64 @@
+{
+    "title": "payment_orders",
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "integer"
+        },
+        "order_code": {
+            "type": "string"
+        },
+        "amount_rial": {
+            "type": "integer"
+        },
+        "amount_toman": {
+            "type": "integer"
+        },
+        "description": {
+            "type": "string"
+        },
+        "authority": {
+            "type": "string"
+        },
+        "ref_id": {
+            "type": "string"
+        },
+        "card_pan": {
+            "type": "string"
+        },
+        "status": {
+            "type": "string"
+        },
+        "items_json": {
+            "type": "string"
+        },
+        "customer_name": {
+            "type": "string"
+        },
+        "customer_phone": {
+            "type": "string"
+        },
+        "customer_email": {
+            "type": "string"
+        },
+        "shipping_address": {
+            "type": "string"
+        },
+        "delivery_method": {
+            "type": "string"
+        },
+        "failure_reason": {
+            "type": "string"
+        },
+        "verified_at": {
+            "type": "string",
+            "format": "date-time"
+        }
+    },
+    "required": [
+        "id",
+        "order_code",
+        "amount_rial",
+        "status"
+    ]
+}

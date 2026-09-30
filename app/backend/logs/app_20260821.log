@@ -1,0 +1,347 @@
+2026-08-21 07:46:17,772 - main - INFO - === Logging system initialized ===
+2026-08-21 07:46:17,772 - main - INFO - Log file: logs/app_20260821.log
+2026-08-21 07:46:17,772 - main - INFO - Log level: DEBUG
+2026-08-21 07:46:17,772 - main - INFO - Log date: 20260821
+2026-08-21 07:46:18,194 - main - INFO - Included router: routers.aihub.router
+2026-08-21 07:46:18,380 - main - INFO - Included router: routers.auth.router
+2026-08-21 07:46:18,406 - main - INFO - Included router: routers.health.router
+2026-08-21 07:46:18,547 - main - INFO - Included router: routers.products.router
+2026-08-21 07:46:18,614 - main - INFO - Included router: routers.sellers.router
+2026-08-21 07:46:18,644 - main - INFO - Included router: routers.settings.router
+2026-08-21 07:46:18,718 - main - INFO - Included router: routers.storage.router
+2026-08-21 07:46:18,770 - main - INFO - Included router: routers.user.router
+2026-08-21 07:46:18,771 - main - INFO - === Application startup initiated ===
+2026-08-21 07:46:18,771 - services.database - INFO - Ignore database initialization
+2026-08-21 07:46:18,771 - services.mock_data - INFO - Ignore initialize data
+2026-08-21 07:46:18,771 - services.auth - INFO - Ignore initialize admin
+2026-08-21 07:46:18,772 - main - INFO - === Application startup completed successfully ===
+2026-08-21 08:05:13,904 - services.database - DEBUG - [DB_OP] Starting database close
+2026-08-21 08:05:13,904 - services.database - INFO - Database connections closed
+2026-08-21 08:05:13,904 - services.database - DEBUG - [DB_OP] Database close completed in 0.0005s
+2026-08-21 08:05:29,541 - main - INFO - === Logging system initialized ===
+2026-08-21 08:05:29,541 - main - INFO - Log file: logs/app_20260821.log
+2026-08-21 08:05:29,542 - main - INFO - Log level: DEBUG
+2026-08-21 08:05:29,542 - main - INFO - Log date: 20260821
+2026-08-21 08:05:29,645 - main - INFO - Included router: routers.aihub.router
+2026-08-21 08:05:29,662 - main - INFO - Included router: routers.auth.router
+2026-08-21 08:05:29,663 - main - INFO - Included router: routers.health.router
+2026-08-21 08:05:29,771 - main - INFO - Included router: routers.products.router
+2026-08-21 08:05:30,114 - main - INFO - Included router: routers.sellers.router
+2026-08-21 08:05:30,127 - main - INFO - Included router: routers.settings.router
+2026-08-21 08:05:30,158 - main - INFO - Included router: routers.storage.router
+2026-08-21 08:05:30,168 - main - INFO - Included router: routers.user.router
+2026-08-21 08:05:30,169 - main - INFO - === Application startup initiated ===
+2026-08-21 08:05:30,169 - services.database - INFO - Ignore database initialization
+2026-08-21 08:05:30,170 - services.mock_data - INFO - Ignore initialize data
+2026-08-21 08:05:30,171 - services.auth - INFO - Ignore initialize admin
+2026-08-21 08:05:30,171 - main - INFO - === Application startup completed successfully ===
+2026-08-21 08:10:23,017 - services.database - DEBUG - [DB_OP] Starting database close
+2026-08-21 08:10:23,018 - services.database - INFO - Database connections closed
+2026-08-21 08:10:23,018 - services.database - DEBUG - [DB_OP] Database close completed in 0.0006s
+2026-08-21 08:10:24,973 - main - INFO - === Logging system initialized ===
+2026-08-21 08:10:24,973 - main - INFO - Log file: logs/app_20260821.log
+2026-08-21 08:10:24,973 - main - INFO - Log level: DEBUG
+2026-08-21 08:10:24,973 - main - INFO - Log date: 20260821
+2026-08-21 08:10:25,068 - main - INFO - Included router: routers.aihub.router
+2026-08-21 08:10:25,079 - main - INFO - Included router: routers.auth.router
+2026-08-21 08:10:25,081 - main - INFO - Included router: routers.health.router
+2026-08-21 08:10:25,287 - main - INFO - Included router: routers.payment_orders.router
+2026-08-21 08:10:25,315 - main - INFO - Included router: routers.products.router
+2026-08-21 08:10:25,339 - main - INFO - Included router: routers.sellers.router
+2026-08-21 08:10:25,348 - main - INFO - Included router: routers.settings.router
+2026-08-21 08:10:25,368 - main - INFO - Included router: routers.storage.router
+2026-08-21 08:10:25,375 - main - INFO - Included router: routers.user.router
+2026-08-21 08:10:25,376 - main - INFO - === Application startup initiated ===
+2026-08-21 08:10:25,376 - services.database - INFO - Ignore database initialization
+2026-08-21 08:10:25,376 - services.mock_data - INFO - Ignore initialize data
+2026-08-21 08:10:25,376 - services.auth - INFO - Ignore initialize admin
+2026-08-21 08:10:25,377 - main - INFO - === Application startup completed successfully ===
+2026-08-21 08:12:57,956 - services.database - DEBUG - [DB_OP] Starting database close
+2026-08-21 08:12:57,956 - services.database - INFO - Database connections closed
+2026-08-21 08:12:57,956 - services.database - DEBUG - [DB_OP] Database close completed in 0.0004s
+2026-08-21 08:12:59,872 - main - INFO - === Logging system initialized ===
+2026-08-21 08:12:59,872 - main - INFO - Log file: logs/app_20260821.log
+2026-08-21 08:12:59,873 - main - INFO - Log level: DEBUG
+2026-08-21 08:12:59,873 - main - INFO - Log date: 20260821
+2026-08-21 08:12:59,965 - main - INFO - Included router: routers.aihub.router
+2026-08-21 08:12:59,976 - main - INFO - Included router: routers.auth.router
+2026-08-21 08:12:59,978 - main - INFO - Included router: routers.health.router
+2026-08-21 08:13:00,083 - main - INFO - Included router: routers.payment_orders.router
+2026-08-21 08:13:00,110 - main - INFO - Included router: routers.products.router
+2026-08-21 08:13:00,135 - main - INFO - Included router: routers.sellers.router
+2026-08-21 08:13:00,144 - main - INFO - Included router: routers.settings.router
+2026-08-21 08:13:00,164 - main - INFO - Included router: routers.storage.router
+2026-08-21 08:13:00,169 - main - INFO - Included router: routers.user.router
+2026-08-21 08:13:00,227 - main - INFO - Included router: routers.zarinpal_payment.router
+2026-08-21 08:13:00,228 - main - INFO - === Application startup initiated ===
+2026-08-21 08:13:00,228 - services.database - INFO - Ignore database initialization
+2026-08-21 08:13:00,228 - services.mock_data - INFO - Ignore initialize data
+2026-08-21 08:13:00,228 - services.auth - INFO - Ignore initialize admin
+2026-08-21 08:13:00,228 - main - INFO - === Application startup completed successfully ===
+2026-08-21 08:13:04,639 - services.database - DEBUG - [DB_OP] Starting database close
+2026-08-21 08:13:04,639 - services.database - INFO - Database connections closed
+2026-08-21 08:13:04,639 - services.database - DEBUG - [DB_OP] Database close completed in 0.0004s
+2026-08-21 08:13:06,789 - main - INFO - === Logging system initialized ===
+2026-08-21 08:13:06,789 - main - INFO - Log file: logs/app_20260821.log
+2026-08-21 08:13:06,789 - main - INFO - Log level: DEBUG
+2026-08-21 08:13:06,789 - main - INFO - Log date: 20260821
+2026-08-21 08:13:06,909 - main - INFO - Included router: routers.aihub.router
+2026-08-21 08:13:06,921 - main - INFO - Included router: routers.auth.router
+2026-08-21 08:13:06,923 - main - INFO - Included router: routers.health.router
+2026-08-21 08:13:07,063 - main - INFO - Included router: routers.payment_orders.router
+2026-08-21 08:13:07,096 - main - INFO - Included router: routers.products.router
+2026-08-21 08:13:07,125 - main - INFO - Included router: routers.sellers.router
+2026-08-21 08:13:07,138 - main - INFO - Included router: routers.settings.router
+2026-08-21 08:13:07,165 - main - INFO - Included router: routers.storage.router
+2026-08-21 08:13:07,172 - main - INFO - Included router: routers.user.router
+2026-08-21 08:13:07,212 - main - INFO - Included router: routers.zarinpal_payment.router
+2026-08-21 08:13:07,213 - main - INFO - === Application startup initiated ===
+2026-08-21 08:13:07,214 - services.database - INFO - Ignore database initialization
+2026-08-21 08:13:07,214 - services.mock_data - INFO - Ignore initialize data
+2026-08-21 08:13:07,214 - services.auth - INFO - Ignore initialize admin
+2026-08-21 08:13:07,214 - main - INFO - === Application startup completed successfully ===
+2026-08-21 08:13:14,532 - services.database - DEBUG - [DB_OP] Starting database close
+2026-08-21 08:13:14,532 - services.database - INFO - Database connections closed
+2026-08-21 08:13:14,533 - services.database - DEBUG - [DB_OP] Database close completed in 0.0007s
+2026-08-21 08:13:16,549 - main - INFO - === Logging system initialized ===
+2026-08-21 08:13:16,549 - main - INFO - Log file: logs/app_20260821.log
+2026-08-21 08:13:16,550 - main - INFO - Log level: DEBUG
+2026-08-21 08:13:16,550 - main - INFO - Log date: 20260821
+2026-08-21 08:13:16,651 - main - INFO - Included router: routers.aihub.router
+2026-08-21 08:13:16,662 - main - INFO - Included router: routers.auth.router
+2026-08-21 08:13:16,664 - main - INFO - Included router: routers.health.router
+2026-08-21 08:13:16,772 - main - INFO - Included router: routers.payment_orders.router
+2026-08-21 08:13:16,803 - main - INFO - Included router: routers.products.router
+2026-08-21 08:13:16,832 - main - INFO - Included router: routers.sellers.router
+2026-08-21 08:13:16,843 - main - INFO - Included router: routers.settings.router
+2026-08-21 08:13:16,865 - main - INFO - Included router: routers.storage.router
+2026-08-21 08:13:16,870 - main - INFO - Included router: routers.user.router
+2026-08-21 08:13:16,937 - main - INFO - Included router: routers.zarinpal_payment.router
+2026-08-21 08:13:16,938 - main - INFO - === Application startup initiated ===
+2026-08-21 08:13:16,938 - services.database - INFO - Ignore database initialization
+2026-08-21 08:13:16,938 - services.mock_data - INFO - Ignore initialize data
+2026-08-21 08:13:16,938 - services.auth - INFO - Ignore initialize admin
+2026-08-21 08:13:16,938 - main - INFO - === Application startup completed successfully ===
+2026-08-21 08:13:17,039 - services.database - DEBUG - [DB_OP] Starting database close
+2026-08-21 08:13:17,040 - services.database - INFO - Database connections closed
+2026-08-21 08:13:17,040 - services.database - DEBUG - [DB_OP] Database close completed in 0.0007s
+2026-08-21 08:13:19,098 - main - INFO - === Logging system initialized ===
+2026-08-21 08:13:19,099 - main - INFO - Log file: logs/app_20260821.log
+2026-08-21 08:13:19,099 - main - INFO - Log level: DEBUG
+2026-08-21 08:13:19,099 - main - INFO - Log date: 20260821
+2026-08-21 08:13:19,203 - main - INFO - Included router: routers.aihub.router
+2026-08-21 08:13:19,216 - main - INFO - Included router: routers.auth.router
+2026-08-21 08:13:19,217 - main - INFO - Included router: routers.health.router
+2026-08-21 08:13:19,319 - main - INFO - Included router: routers.payment_orders.router
+2026-08-21 08:13:19,351 - main - INFO - Included router: routers.products.router
+2026-08-21 08:13:19,380 - main - INFO - Included router: routers.sellers.router
+2026-08-21 08:13:19,392 - main - INFO - Included router: routers.settings.router
+2026-08-21 08:13:19,413 - main - INFO - Included router: routers.storage.router
+2026-08-21 08:13:19,418 - main - INFO - Included router: routers.user.router
+2026-08-21 08:13:19,430 - main - INFO - Included router: routers.zarinpal_payment.router
+2026-08-21 08:13:19,431 - main - INFO - === Application startup initiated ===
+2026-08-21 08:13:19,432 - services.database - INFO - Ignore database initialization
+2026-08-21 08:13:19,432 - services.mock_data - INFO - Ignore initialize data
+2026-08-21 08:13:19,432 - services.auth - INFO - Ignore initialize admin
+2026-08-21 08:13:19,432 - main - INFO - === Application startup completed successfully ===
+2026-08-21 08:13:53,414 - services.database - DEBUG - [DB_OP] Starting database close
+2026-08-21 08:13:53,415 - services.database - INFO - Database connections closed
+2026-08-21 08:13:53,415 - services.database - DEBUG - [DB_OP] Database close completed in 0.0009s
+2026-08-21 08:13:55,433 - main - INFO - === Logging system initialized ===
+2026-08-21 08:13:55,433 - main - INFO - Log file: logs/app_20260821.log
+2026-08-21 08:13:55,433 - main - INFO - Log level: DEBUG
+2026-08-21 08:13:55,434 - main - INFO - Log date: 20260821
+2026-08-21 08:13:55,539 - main - INFO - Included router: routers.aihub.router
+2026-08-21 08:13:55,555 - main - INFO - Included router: routers.auth.router
+2026-08-21 08:13:55,556 - main - INFO - Included router: routers.health.router
+2026-08-21 08:13:55,659 - main - INFO - Included router: routers.payment_orders.router
+2026-08-21 08:13:55,694 - main - INFO - Included router: routers.products.router
+2026-08-21 08:13:55,725 - main - INFO - Included router: routers.sellers.router
+2026-08-21 08:13:55,736 - main - INFO - Included router: routers.settings.router
+2026-08-21 08:13:55,757 - main - INFO - Included router: routers.storage.router
+2026-08-21 08:13:55,763 - main - INFO - Included router: routers.user.router
+2026-08-21 08:13:55,840 - main - INFO - Included router: routers.zarinpal_payment.router
+2026-08-21 08:13:55,841 - main - INFO - === Application startup initiated ===
+2026-08-21 08:13:55,841 - services.database - INFO - Ignore database initialization
+2026-08-21 08:13:55,841 - services.mock_data - INFO - Ignore initialize data
+2026-08-21 08:13:55,841 - services.auth - INFO - Ignore initialize admin
+2026-08-21 08:13:55,841 - main - INFO - === Application startup completed successfully ===
+2026-08-21 08:15:11,132 - services.database - DEBUG - [DB_OP] Starting database close
+2026-08-21 08:15:11,133 - services.database - INFO - Database connections closed
+2026-08-21 08:15:11,133 - services.database - DEBUG - [DB_OP] Database close completed in 0.0004s
+2026-08-21 08:15:13,216 - main - INFO - === Logging system initialized ===
+2026-08-21 08:15:13,217 - main - INFO - Log file: logs/app_20260821.log
+2026-08-21 08:15:13,217 - main - INFO - Log level: DEBUG
+2026-08-21 08:15:13,217 - main - INFO - Log date: 20260821
+2026-08-21 08:15:13,312 - main - INFO - Included router: routers.aihub.router
+2026-08-21 08:15:13,324 - main - INFO - Included router: routers.auth.router
+2026-08-21 08:15:13,325 - main - INFO - Included router: routers.health.router
+2026-08-21 08:15:13,422 - main - INFO - Included router: routers.payment_orders.router
+2026-08-21 08:15:13,450 - main - INFO - Included router: routers.products.router
+2026-08-21 08:15:13,477 - main - INFO - Included router: routers.sellers.router
+2026-08-21 08:15:13,490 - main - INFO - Included router: routers.settings.router
+2026-08-21 08:15:13,511 - main - INFO - Included router: routers.storage.router
+2026-08-21 08:15:13,519 - main - INFO - Included router: routers.user.router
+2026-08-21 08:15:13,538 - main - INFO - Included router: routers.zarinpal_payment.router
+2026-08-21 08:15:13,540 - main - INFO - === Application startup initiated ===
+2026-08-21 08:15:13,541 - services.database - INFO - Ignore database initialization
+2026-08-21 08:15:13,541 - services.mock_data - INFO - Ignore initialize data
+2026-08-21 08:15:13,541 - services.auth - INFO - Ignore initialize admin
+2026-08-21 08:15:13,541 - main - INFO - === Application startup completed successfully ===
+2026-08-21 08:15:13,642 - services.database - DEBUG - [DB_OP] Starting database close
+2026-08-21 08:15:13,642 - services.database - INFO - Database connections closed
+2026-08-21 08:15:13,642 - services.database - DEBUG - [DB_OP] Database close completed in 0.0003s
+2026-08-21 08:15:15,746 - main - INFO - === Logging system initialized ===
+2026-08-21 08:15:15,746 - main - INFO - Log file: logs/app_20260821.log
+2026-08-21 08:15:15,746 - main - INFO - Log level: DEBUG
+2026-08-21 08:15:15,746 - main - INFO - Log date: 20260821
+2026-08-21 08:15:15,866 - main - INFO - Included router: routers.aihub.router
+2026-08-21 08:15:15,880 - main - INFO - Included router: routers.auth.router
+2026-08-21 08:15:15,881 - main - INFO - Included router: routers.health.router
+2026-08-21 08:15:16,010 - main - INFO - Included router: routers.payment_orders.router
+2026-08-21 08:15:16,073 - main - INFO - Included router: routers.products.router
+2026-08-21 08:15:16,108 - main - INFO - Included router: routers.sellers.router
+2026-08-21 08:15:16,120 - main - INFO - Included router: routers.settings.router
+2026-08-21 08:15:16,144 - main - INFO - Included router: routers.storage.router
+2026-08-21 08:15:16,152 - main - INFO - Included router: routers.user.router
+2026-08-21 08:15:16,206 - main - INFO - Included router: routers.zarinpal_payment.router
+2026-08-21 08:15:16,207 - main - INFO - === Application startup initiated ===
+2026-08-21 08:15:16,207 - services.database - INFO - Ignore database initialization
+2026-08-21 08:15:16,208 - services.mock_data - INFO - Ignore initialize data
+2026-08-21 08:15:16,208 - services.auth - INFO - Ignore initialize admin
+2026-08-21 08:15:16,208 - main - INFO - === Application startup completed successfully ===
+2026-08-21 08:15:16,309 - services.database - DEBUG - [DB_OP] Starting database close
+2026-08-21 08:15:16,309 - services.database - INFO - Database connections closed
+2026-08-21 08:15:16,309 - services.database - DEBUG - [DB_OP] Database close completed in 0.0003s
+2026-08-21 08:15:18,157 - main - INFO - === Logging system initialized ===
+2026-08-21 08:15:18,157 - main - INFO - Log file: logs/app_20260821.log
+2026-08-21 08:15:18,157 - main - INFO - Log level: DEBUG
+2026-08-21 08:15:18,158 - main - INFO - Log date: 20260821
+2026-08-21 08:15:18,268 - main - INFO - Included router: routers.aihub.router
+2026-08-21 08:15:18,279 - main - INFO - Included router: routers.auth.router
+2026-08-21 08:15:18,283 - main - INFO - Included router: routers.health.router
+2026-08-21 08:15:18,391 - main - INFO - Included router: routers.payment_orders.router
+2026-08-21 08:15:18,709 - main - INFO - Included router: routers.products.router
+2026-08-21 08:15:18,738 - main - INFO - Included router: routers.sellers.router
+2026-08-21 08:15:18,748 - main - INFO - Included router: routers.settings.router
+2026-08-21 08:15:18,772 - main - INFO - Included router: routers.storage.router
+2026-08-21 08:15:18,780 - main - INFO - Included router: routers.user.router
+2026-08-21 08:15:18,796 - main - INFO - Included router: routers.zarinpal_payment.router
+2026-08-21 08:15:18,797 - main - INFO - === Application startup initiated ===
+2026-08-21 08:15:18,797 - services.database - INFO - Ignore database initialization
+2026-08-21 08:15:18,797 - services.mock_data - INFO - Ignore initialize data
+2026-08-21 08:15:18,797 - services.auth - INFO - Ignore initialize admin
+2026-08-21 08:15:18,797 - main - INFO - === Application startup completed successfully ===
+2026-08-21 08:16:30,075 - services.database - DEBUG - [DB_OP] Starting database close
+2026-08-21 08:16:30,076 - services.database - INFO - Database connections closed
+2026-08-21 08:16:30,076 - services.database - DEBUG - [DB_OP] Database close completed in 0.0005s
+2026-08-21 08:16:32,253 - main - INFO - === Logging system initialized ===
+2026-08-21 08:16:32,253 - main - INFO - Log file: logs/app_20260821.log
+2026-08-21 08:16:32,253 - main - INFO - Log level: DEBUG
+2026-08-21 08:16:32,253 - main - INFO - Log date: 20260821
+2026-08-21 08:16:32,362 - main - INFO - Included router: routers.aihub.router
+2026-08-21 08:16:32,381 - main - INFO - Included router: routers.auth.router
+2026-08-21 08:16:32,382 - main - INFO - Included router: routers.health.router
+2026-08-21 08:16:32,486 - main - INFO - Included router: routers.payment_orders.router
+2026-08-21 08:16:32,515 - main - INFO - Included router: routers.products.router
+2026-08-21 08:16:32,541 - main - INFO - Included router: routers.sellers.router
+2026-08-21 08:16:32,550 - main - INFO - Included router: routers.settings.router
+2026-08-21 08:16:32,571 - main - INFO - Included router: routers.storage.router
+2026-08-21 08:16:32,575 - main - INFO - Included router: routers.user.router
+2026-08-21 08:16:32,605 - main - INFO - Included router: routers.zarinpal_payment.router
+2026-08-21 08:16:32,606 - main - INFO - === Application startup initiated ===
+2026-08-21 08:16:32,606 - services.database - INFO - Ignore database initialization
+2026-08-21 08:16:32,606 - services.mock_data - INFO - Ignore initialize data
+2026-08-21 08:16:32,607 - services.auth - INFO - Ignore initialize admin
+2026-08-21 08:16:32,607 - main - INFO - === Application startup completed successfully ===
+2026-08-21 08:35:38,330 - services.database - DEBUG - [DB_OP] Starting database close
+2026-08-21 08:35:38,330 - services.database - INFO - Database connections closed
+2026-08-21 08:35:38,331 - services.database - DEBUG - [DB_OP] Database close completed in 0.0007s
+2026-08-21 08:35:58,164 - main - INFO - === Logging system initialized ===
+2026-08-21 08:35:58,165 - main - INFO - Log file: logs/app_20260821.log
+2026-08-21 08:35:58,165 - main - INFO - Log level: DEBUG
+2026-08-21 08:35:58,165 - main - INFO - Log date: 20260821
+2026-08-21 08:35:58,334 - main - INFO - Included router: routers.aihub.router
+2026-08-21 08:35:58,412 - main - INFO - Included router: routers.auth.router
+2026-08-21 08:35:58,414 - main - INFO - Included router: routers.health.router
+2026-08-21 08:35:58,612 - main - INFO - Included router: routers.payment_orders.router
+2026-08-21 08:35:58,642 - main - INFO - Included router: routers.products.router
+2026-08-21 08:35:58,728 - main - INFO - Included router: routers.sellers.router
+2026-08-21 08:35:58,807 - main - INFO - Included router: routers.settings.router
+2026-08-21 08:35:58,831 - main - INFO - Included router: routers.storage.router
+2026-08-21 08:35:58,839 - main - INFO - Included router: routers.user.router
+2026-08-21 08:35:58,903 - main - INFO - Included router: routers.zarinpal_payment.router
+2026-08-21 08:35:58,905 - main - INFO - === Application startup initiated ===
+2026-08-21 08:35:58,905 - services.database - INFO - Ignore database initialization
+2026-08-21 08:35:58,905 - services.mock_data - INFO - Ignore initialize data
+2026-08-21 08:35:58,905 - services.auth - INFO - Ignore initialize admin
+2026-08-21 08:35:58,905 - main - INFO - === Application startup completed successfully ===
+2026-08-21 08:36:03,612 - main - INFO - === Logging system initialized ===
+2026-08-21 08:36:03,612 - main - INFO - Log file: logs/app_20260821.log
+2026-08-21 08:36:03,612 - main - INFO - Log level: DEBUG
+2026-08-21 08:36:03,612 - main - INFO - Log date: 20260821
+2026-08-21 08:36:03,730 - main - INFO - Included router: routers.aihub.router
+2026-08-21 08:36:03,746 - main - INFO - Included router: routers.auth.router
+2026-08-21 08:36:03,748 - main - INFO - Included router: routers.health.router
+2026-08-21 08:36:03,871 - main - INFO - Included router: routers.payment_orders.router
+2026-08-21 08:36:03,907 - main - INFO - Included router: routers.products.router
+2026-08-21 08:36:03,945 - main - INFO - Included router: routers.sellers.router
+2026-08-21 08:36:03,961 - main - INFO - Included router: routers.settings.router
+2026-08-21 08:36:03,990 - main - INFO - Included router: routers.storage.router
+2026-08-21 08:36:04,000 - main - INFO - Included router: routers.user.router
+2026-08-21 08:36:04,050 - main - INFO - Included router: routers.zarinpal_payment.router
+2026-08-21 08:36:04,051 - main - INFO - === Application startup initiated ===
+2026-08-21 08:36:04,052 - services.database - INFO - Ignore database initialization
+2026-08-21 08:36:04,052 - services.mock_data - INFO - Ignore initialize data
+2026-08-21 08:36:04,052 - services.auth - INFO - Ignore initialize admin
+2026-08-21 08:36:04,052 - main - INFO - === Application startup completed successfully ===
+2026-08-21 08:37:51,112 - services.database - DEBUG - [DB_OP] Starting database close
+2026-08-21 08:37:51,112 - services.database - INFO - Database connections closed
+2026-08-21 08:37:51,112 - services.database - DEBUG - [DB_OP] Database close completed in 0.0005s
+2026-08-21 08:37:51,113 - services.database - DEBUG - [DB_OP] Starting database close
+2026-08-21 08:37:51,113 - services.database - INFO - Database connections closed
+2026-08-21 08:37:51,114 - services.database - DEBUG - [DB_OP] Database close completed in 0.0005s
+2026-08-21 08:38:07,476 - main - INFO - === Logging system initialized ===
+2026-08-21 08:38:07,476 - main - INFO - Log file: logs/app_20260821.log
+2026-08-21 08:38:07,476 - main - INFO - Log level: DEBUG
+2026-08-21 08:38:07,476 - main - INFO - Log date: 20260821
+2026-08-21 08:38:07,579 - main - INFO - Included router: routers.aihub.router
+2026-08-21 08:38:07,590 - main - INFO - Included router: routers.auth.router
+2026-08-21 08:38:07,591 - main - INFO - Included router: routers.health.router
+2026-08-21 08:38:07,690 - main - INFO - Included router: routers.payment_orders.router
+2026-08-21 08:38:07,721 - main - INFO - Included router: routers.products.router
+2026-08-21 08:38:07,752 - main - INFO - Included router: routers.sellers.router
+2026-08-21 08:38:07,763 - main - INFO - Included router: routers.settings.router
+2026-08-21 08:38:07,784 - main - INFO - Included router: routers.storage.router
+2026-08-21 08:38:07,788 - main - INFO - Included router: routers.user.router
+2026-08-21 08:38:07,797 - main - INFO - Included router: routers.zarinpal_payment.router
+2026-08-21 08:38:07,798 - main - INFO - === Application startup initiated ===
+2026-08-21 08:38:07,799 - services.database - INFO - Ignore database initialization
+2026-08-21 08:38:07,799 - services.mock_data - INFO - Ignore initialize data
+2026-08-21 08:38:07,799 - services.auth - INFO - Ignore initialize admin
+2026-08-21 08:38:07,799 - main - INFO - === Application startup completed successfully ===
+2026-08-21 08:38:09,117 - services.database - DEBUG - [DB_OP] Starting database close
+2026-08-21 08:38:09,117 - services.database - INFO - Database connections closed
+2026-08-21 08:38:09,117 - services.database - DEBUG - [DB_OP] Database close completed in 0.0004s
+2026-08-21 08:38:53,211 - main - INFO - === Logging system initialized ===
+2026-08-21 08:38:53,212 - main - INFO - Log file: logs/app_20260821.log
+2026-08-21 08:38:53,212 - main - INFO - Log level: DEBUG
+2026-08-21 08:38:53,212 - main - INFO - Log date: 20260821
+2026-08-21 08:38:53,308 - main - INFO - Included router: routers.aihub.router
+2026-08-21 08:38:53,320 - main - INFO - Included router: routers.auth.router
+2026-08-21 08:38:53,322 - main - INFO - Included router: routers.health.router
+2026-08-21 08:38:53,435 - main - INFO - Included router: routers.payment_orders.router
+2026-08-21 08:38:53,468 - main - INFO - Included router: routers.products.router
+2026-08-21 08:38:53,497 - main - INFO - Included router: routers.sellers.router
+2026-08-21 08:38:53,509 - main - INFO - Included router: routers.settings.router
+2026-08-21 08:38:53,535 - main - INFO - Included router: routers.storage.router
+2026-08-21 08:38:53,540 - main - INFO - Included router: routers.user.router
+2026-08-21 08:38:53,552 - main - INFO - Included router: routers.zarinpal_payment.router
+2026-08-21 08:38:53,554 - main - INFO - === Application startup initiated ===
+2026-08-21 08:38:53,554 - services.database - INFO - Ignore database initialization
+2026-08-21 08:38:53,554 - services.mock_data - INFO - Ignore initialize data
+2026-08-21 08:38:53,554 - services.auth - INFO - Ignore initialize admin
+2026-08-21 08:38:53,554 - main - INFO - === Application startup completed successfully ===
+2026-08-21 08:51:52,106 - services.database - DEBUG - [DB_OP] Starting database close
+2026-08-21 08:51:52,106 - services.database - INFO - Database connections closed
+2026-08-21 08:51:52,106 - services.database - DEBUG - [DB_OP] Database close completed in 0.0004s

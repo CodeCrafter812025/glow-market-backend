@@ -1,0 +1,38 @@
+{
+    "title": "sellers",
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "integer",
+            "description": "Auto-increment primary key"
+        },
+        "brand_name": {
+            "type": "string",
+            "description": "Brand/business name of the seller"
+        },
+        "is_founder": {
+            "type": "boolean",
+            "description": "Whether this seller is a platform founder",
+            "default": false
+        },
+        "contact_phone": {
+            "type": "string",
+            "description": "Seller contact phone number"
+        },
+        "contact_email": {
+            "type": "string",
+            "description": "Seller contact email"
+        },
+        "logo_url": {
+            "type": "string",
+            "description": "URL to seller logo image (nullable)"
+        },
+        "bio": {
+            "type": "string",
+            "description": "Short seller bio/description (nullable)"
+        }
+    },
+    "required": [
+        "brand_name"
+    ]
+}

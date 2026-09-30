@@ -1,0 +1,71 @@
+{
+    "title": "products",
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "integer",
+            "description": "Auto-increment primary key"
+        },
+        "seller_id": {
+            "type": "integer",
+            "description": "Foreign key referencing sellers table"
+        },
+        "title": {
+            "type": "string",
+            "description": "Product name/title"
+        },
+        "price": {
+            "type": "number",
+            "description": "Product price"
+        },
+        "image_url": {
+            "type": "string",
+            "description": "Product image URL (nullable - some products may not have images yet)"
+        },
+        "description": {
+            "type": "string",
+            "description": "Product description (nullable - may be added later)"
+        },
+        "target_skin_type": {
+            "type": "string",
+            "description": "JSON array of target skin types e.g. [\"چرب\",\"مختلط\"]"
+        },
+        "target_concerns": {
+            "type": "string",
+            "description": "JSON array of target concerns e.g. [\"جوش\",\"لک\"]"
+        },
+        "category": {
+            "type": "string",
+            "description": "Product category: پاک‌کننده, درمان اصلی, مرطوب‌کننده, سرم, ضد آفتاب, ماسک"
+        },
+        "is_sensitive_friendly": {
+            "type": "boolean",
+            "description": "Whether safe for sensitive skin",
+            "default": false
+        },
+        "target_goals": {
+            "type": "string",
+            "description": "JSON array of target goals e.g. [\"matte\",\"clear\"]"
+        },
+        "rating": {
+            "type": "number",
+            "description": "Product rating 0-5",
+            "default": 0
+        },
+        "review_count": {
+            "type": "integer",
+            "description": "Number of reviews",
+            "default": 0
+        },
+        "verified": {
+            "type": "boolean",
+            "description": "Whether product is verified by platform",
+            "default": false
+        }
+    },
+    "required": [
+        "seller_id",
+        "title",
+        "price"
+    ]
+}

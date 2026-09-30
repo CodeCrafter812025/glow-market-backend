@@ -1,0 +1,6 @@
+app/.env
+.env
+__pycache__/
+node_modules/
+app/frontend/node_modules/
+.pnpm/

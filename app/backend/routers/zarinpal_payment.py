@@ -1,4 +1,4 @@
-"""Zarinpal checkout endpoints (REST v4, sandbox-capable).
+﻿"""Zarinpal checkout endpoints (REST v4, sandbox-capable).
 
 Flow
 ----
@@ -25,6 +25,8 @@ from typing import Any, Dict, List, Optional
 from core.database import get_db
 from fastapi import APIRouter, Depends, HTTPException, Request
 from models.payment_orders import Payment_orders
+from models.order_items import OrderItem
+from models.sellers import Sellers
 from models.products import Products
 from schemas.zarinpal_payment import (
     CartItemIn,
@@ -196,10 +198,14 @@ async def create_payment_request(
     product_ids = [item.id for item in payload.items]
     db_prices = await _price_map(db, product_ids)
 
-    # Server-side total. DB price wins whenever the product is known.
+    # Server-side total. The DB price is the ONLY source of truth — the client
+    # never controls the final payment amount. A product id that is not in the
+    # DB is rejected outright instead of falling back to a client-supplied price.
     subtotal_units = Decimal("0")
     for item in payload.items:
-        unit_price = db_prices.get(item.id, item.price)
+        if item.id not in db_prices:
+            raise HTTPException(status_code=400, detail=f"کالای «{item.title or item.id}» در فروشگاه یافت نشد.")
+        unit_price = db_prices[item.id]
         if unit_price <= 0:
             raise HTTPException(status_code=400, detail=f"قیمت کالای «{item.title or item.id}» نامعتبر است.")
         subtotal_units += unit_price * Decimal(item.quantity)
@@ -273,7 +279,11 @@ async def verify_payment(
     db: AsyncSession = Depends(get_db),
 ) -> PaymentVerifyOut:
     """Verify a returned Zarinpal payment. Safe to call more than once."""
-    result = await db.execute(select(Payment_orders).where(Payment_orders.authority == payload.authority))
+    # Row lock serialises concurrent verifies of the same authority so a double
+    # callback cannot both observe a "pending" order and double-commit a result.
+    result = await db.execute(
+        select(Payment_orders).where(Payment_orders.authority == payload.authority).with_for_update()
+    )
     order = result.scalars().first()
 
     if order is None:
@@ -341,10 +351,57 @@ async def verify_payment(
         )
 
     order.status = STATUS_PAID
-    order.ref_id = verification.ref_id
-    order.card_pan = verification.card_pan
+    # On the "already verified" (code 101) path Zarinpal returns no ref_id; never
+    # overwrite a previously stored ref_id/card_pan with None.
+    if verification.ref_id is not None:
+        order.ref_id = verification.ref_id
+    if verification.card_pan is not None:
+        order.card_pan = verification.card_pan
     order.failure_reason = None
     order.verified_at = datetime.now(timezone.utc)
+    
+    # ----------------------------------------------------------------------- #
+    # [Marketplace Logic] Create OrderItems and calculate financial splits
+    # ----------------------------------------------------------------------- #
+    # Fetch products to get current seller_id
+    product_ids = [item.id for item in items]
+    products_query = await db.execute(select(Products).where(Products.id.in_(product_ids)))
+    db_products = {p.id: p for p in products_query.scalars().all()}
+    
+    # Fetch sellers to get commission rates
+    seller_ids = [p.seller_id for p in db_products.values()]
+    sellers_query = await db.execute(select(Sellers).where(Sellers.id.in_(seller_ids)))
+    db_sellers = {s.id: s for s in sellers_query.scalars().all()}
+    
+    for item in items:
+        product = db_products.get(item.id)
+        if not product:
+            continue
+            
+        seller = db_sellers.get(product.seller_id)
+        if not seller:
+            continue
+            
+        # Snapshot values
+        unit_price_toman = item.price
+        comm_rate = seller.commission_rate
+        
+        # Calculate seller share: (Price * Quantity) - Commission
+        total_price = unit_price_toman * item.quantity
+        platform_fee = total_price * comm_rate
+        calculated_share = total_price - platform_fee
+        
+        order_item = OrderItem(
+            order_id=order.id,
+            product_id=product.id,
+            seller_id=seller.id,
+            quantity=item.quantity,
+            unit_price=unit_price_toman,
+            commission_rate=comm_rate,
+            seller_share=calculated_share
+        )
+        db.add(order_item)
+
     await db.commit()
 
     logger.info("Zarinpal order %s verified (ref_id=%s)", order.order_code, order.ref_id)

@@ -1,5 +1,6 @@
-from core.database import Base
+﻿from core.database import Base
 from datetime import datetime
+from sqlalchemy.orm import relationship
 from sqlalchemy import Column, DateTime, Integer, String
 
 
@@ -26,3 +27,5 @@ class Payment_orders(Base):
     verified_at = Column(DateTime(timezone=True), nullable=True)
     created_at = Column(DateTime(timezone=True), default=datetime.now)
     updated_at = Column(DateTime(timezone=True), default=datetime.now, onupdate=datetime.now)
+
+    order_items = relationship("OrderItem", back_populates="order", cascade="all, delete-orphan")

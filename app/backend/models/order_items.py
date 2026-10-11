@@ -11,6 +11,7 @@ class OrderItem(Base):
     order_id = Column(Integer, ForeignKey("payment_orders.id"), index=True, nullable=False)
     product_id = Column(Integer, ForeignKey("products.id"), index=True, nullable=False)
     seller_id = Column(Integer, ForeignKey("sellers.id"), index=True, nullable=False)
+    settlement_id = Column(Integer, ForeignKey("settlements.id"), index=True, nullable=True)
     
     quantity = Column(Integer, nullable=False, default=1)
     unit_price = Column(Float, nullable=False) # Snapshot of product price
@@ -23,3 +24,4 @@ class OrderItem(Base):
     order = relationship("Payment_orders", back_populates="order_items")
     product = relationship("Products")
     seller = relationship("Sellers")
+    settlement = relationship("Settlement", back_populates="order_items")

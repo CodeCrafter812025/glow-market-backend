@@ -1,9 +1,10 @@
-#!/usr/bin/env python
+﻿#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # @Desc   :
 
 import asyncio
 import importlib
+import os
 import pkgutil
 import sys
 from logging.config import fileConfig
@@ -40,19 +41,27 @@ target_metadata = Base.metadata
 
 def alembic_include_object(object, name, type_, reflected, compare_to):
     # type_ can be 'table', 'index', 'column', 'constraint'
-    # ignore particular table_name
-    if type_ == "table" and name in ["users", "sessions", "oidc_states"]:
+    # ``users`` and ``oidc_states`` are now managed by Alembic (created in the
+    # phase1 migration), so they are no longer excluded from autogenerate.
+    if type_ == "table" and name in ["sessions"]:
         return False
     return True
 
 
 async def run_migrations_online():
-    connectable = create_async_engine(config.get_main_option("sqlalchemy.url"), poolclass=pool.NullPool)
+    # Resolve the target DB from DATABASE_URL first, then fall back to the
+    # (historically empty) alembic.ini value, so ``alembic upgrade head`` works
+    # without editing alembic.ini.
+    database_url = os.environ.get("DATABASE_URL") or config.get_main_option("sqlalchemy.url")
+    if not database_url:
+        raise RuntimeError("DATABASE_URL must be set (or alembic.ini sqlalchemy.url) to run migrations")
+
+    connectable = create_async_engine(database_url, poolclass=pool.NullPool)
     async with connectable.connect() as connection:
         await connection.run_sync(
             lambda sync_conn: context.configure(
                 connection=sync_conn,
-                target_metadata=target_metadata,
+                target_metadata=target_metadata, render_as_batch=True,
                 compare_type=True,
                 compare_server_default=True,
                 include_object=alembic_include_object,

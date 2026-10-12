@@ -107,6 +107,21 @@ class SettlementsService:
         if updates.get('status') == 'completed' and not settlement.settled_at:
             settlement.settled_at = datetime.now(timezone.utc)
             
+        # --- SMS Notification ---
+        try:
+            from services.sms import SMSService
+            seller_query = await self.db.execute(select(Sellers).where(Sellers.id == settlement.seller_id))
+            seller_obj = seller_query.scalar_one_or_none()
+            if seller_obj and getattr(seller_obj, "contact_phone", None):
+                await SMSService().send_sms(
+                    seller_obj.contact_phone, 
+                    "settlement_completed", 
+                    amount=settlement.amount,
+                    iban=settlement.iban
+                )
+        except Exception as e:
+            logger.error(f"Failed to send settlement SMS: {e}")
+
         await self.db.commit()
         await self.db.refresh(settlement)
         return settlement

@@ -404,6 +404,25 @@ async def verify_payment(
 
     await db.commit()
 
+    # ----------------------------------------------------------------------- #
+    # [Notifications] Send Mock SMS
+    # ----------------------------------------------------------------------- #
+    try:
+        from services.sms import SMSService
+        sms_svc = SMSService()
+        
+        # Notify Buyer
+        if order.customer_phone:
+            await sms_svc.send_sms(order.customer_phone, "order_confirmed", order_code=order.order_code)
+            
+        # Notify Sellers (unique)
+        unique_sellers = {s.id: s for s in db_sellers.values()}
+        for seller in unique_sellers.values():
+            if getattr(seller, "contact_phone", None):
+                await sms_svc.send_sms(seller.contact_phone, "new_order_received", brand=seller.brand_name)
+    except Exception as e:
+        logger.error(f"Failed to send SMS: {e}")
+
     logger.info("Zarinpal order %s verified (ref_id=%s)", order.order_code, order.ref_id)
 
     return PaymentVerifyOut(

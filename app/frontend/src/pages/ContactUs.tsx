@@ -1,22 +1,34 @@
-import { Clock, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+﻿import { Clock, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import InfoPageLayout, { InfoSection } from "@/components/InfoPageLayout";
 import { toPersianDigits } from "@/lib/numerals";
 
-const SUPPORT_PHONE = "021-91002233";
-const SUPPORT_EMAIL = "support@glow-market.ir";
+const LANDLINE_PHONE = "05433291359";
+const MOBILE_PHONE = "09907488203";
+const SUPPORT_PHONE_ALT = "09017488203";
+const SUPPORT_EMAIL = "ghavidelheidarei81@gmail.com";
+const SUPPORT_ADDRESS = "استان : سیستان وبلوچستان - شهرستان : زاهدان - بخش : مرکزی - شهر : زاهدان - محله : شهرک جهاد - خیابان شهدای گمنام - کوچه میرمرادزهی۱۱ - پلاک : ۱۴.۰ - طبقه : همکف";
+const POSTAL_CODE = "9818997001";
 
 const channels = [
   {
     icon: Phone,
-    title: "تلفن پشتیبانی",
-    value: toPersianDigits(SUPPORT_PHONE),
-    href: `tel:${SUPPORT_PHONE}`,
-    note: "شنبه تا پنجشنبه",
+    title: "تلفن ثابت",
+    value: toPersianDigits(LANDLINE_PHONE),
+    href: `tel:${LANDLINE_PHONE}`,
+    note: "شماره ثابت رسمی ثبت‌شده در ای‌نماد",
+    ltr: false,
+  },
+  {
+    icon: Phone,
+    title: "تلفن همراه پشتیبانی",
+    value: `${toPersianDigits(MOBILE_PHONE)} / ${toPersianDigits(SUPPORT_PHONE_ALT)}`,
+    href: `tel:${MOBILE_PHONE}`,
+    note: "پاسخ‌گویی سریع شنبه تا پنجشنبه",
     ltr: false,
   },
   {
     icon: Mail,
-    title: "ایمیل",
+    title: "پست الکترونیکی",
     value: SUPPORT_EMAIL,
     href: `mailto:${SUPPORT_EMAIL}`,
     note: "پاسخ حداکثر تا یک روز کاری",
@@ -37,7 +49,7 @@ export default function ContactUs() {
       subtitle="برای پیگیری سفارش، پرسش درباره محصولات یا همکاری به عنوان فروشنده، از راه‌های زیر با تیم گلو مارکت در ارتباط باشید."
     >
       <InfoSection heading="راه‌های ارتباطی">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 not-prose">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 not-prose">
           {channels.map((channel) => (
             <a
               key={channel.title}
@@ -60,19 +72,19 @@ export default function ContactUs() {
         </div>
       </InfoSection>
 
-      <InfoSection heading="نشانی">
+      <InfoSection heading="نشانی و کد پستی">
         <div className="rounded-2xl border border-border/60 bg-accent/20 p-5 not-prose">
           <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/10">
             <MapPin className="h-4 w-4 text-primary" />
           </span>
           <p className="mt-3 text-sm leading-7 text-foreground/85">
-            {toPersianDigits(
-              "تهران، خیابان ولیعصر، بالاتر از پارک ساعی، پلاک 123، طبقه 4، واحد 12"
-            )}
+            {toPersianDigits(SUPPORT_ADDRESS)}
           </p>
-          <p className="mt-2 text-[11px] text-muted-foreground">
-            کد پستی: {toPersianDigits("1966731111")} — مراجعه حضوری تنها با هماهنگی تلفنی
-            پیشین امکان‌پذیر است.
+          <p className="mt-2 text-xs font-semibold text-foreground/80">
+            کد پستی: {toPersianDigits(POSTAL_CODE)}
+          </p>
+          <p className="mt-1 text-[11px] text-muted-foreground">
+            مراجعه حضوری تنها با هماهنگی تلفنی پیشین امکان‌پذیر است.
           </p>
         </div>
       </InfoSection>

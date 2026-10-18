@@ -2,13 +2,13 @@
 import { Mail, MapPin, Phone, ShieldCheck, Sparkles } from "lucide-react";
 import { toPersianDigits } from "@/lib/numerals";
 
-/** Official contact details matched with E-Namad registration. */
-const LANDLINE_PHONE = "05433291359";
+/** Support phone shown in the footer. Stored in ASCII, displayed in Persian digits. */
+const LANDLINE_PHONE = "054-33291359";
 const MOBILE_PHONE = "09907488203";
-const SUPPORT_PHONE_ALT = "09017488203";
-const SUPPORT_EMAIL = "ghavidelheidarei81@gmail.com";
-const SUPPORT_ADDRESS = "استان : سیستان وبلوچستان - شهرستان : زاهدان - بخش : مرکزی - شهر : زاهدان - محله : شهرک جهاد - خیابان شهدای گمنام - کوچه میرمرادزهی۱۱ - پلاک : ۱۴.۰ - طبقه : همکف";
+const SUPPORT_PHONE = "09017488203";
 const POSTAL_CODE = "9818997001";
+const SUPPORT_EMAIL = "ghavidelheidarei81@gmail.com";
+const SUPPORT_ADDRESS = "استان : سیستان وبلوچستان - شهرستان : زاهدان - بخش : مرکزی - شهر : زاهدان - محله : شهرک جهاد - خیابان شهدای گمنام - کوچه میرمرادزهی11 - پلاک : 14.0 - طبقه : همکف";
 
 const linkColumns: { header: string; links: { label: string; to: string }[] }[] = [
   {
@@ -115,26 +115,10 @@ export default function Footer() {
                 <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/10">
                   <Phone className="h-3 w-3 text-primary" />
                 </span>
-                <div className="space-y-1">
-                  <p className="text-[11px] text-muted-foreground/80">تلفن ثابت و پشتیبانی</p>
-                  <a
-                    href={`tel:${LANDLINE_PHONE}`}
-                    className="block text-xs font-medium text-foreground/85 hover:text-primary transition-colors cursor-pointer"
-                  >
-                    تلفن ثابت: {toPersianDigits(LANDLINE_PHONE)}
-                  </a>
-                  <a
-                    href={`tel:${MOBILE_PHONE}`}
-                    className="block text-xs font-medium text-foreground/85 hover:text-primary transition-colors cursor-pointer"
-                  >
-                    همراه پشتیبانی: {toPersianDigits(MOBILE_PHONE)}
-                  </a>
-                  <a
-                    href={`tel:${SUPPORT_PHONE_ALT}`}
-                    className="block text-[11px] text-muted-foreground hover:text-primary transition-colors cursor-pointer"
-                  >
-                    پشتیبانی ۲: {toPersianDigits(SUPPORT_PHONE_ALT)}
-                  </a>
+                <div>
+                  <p className="text-[11px] text-muted-foreground/80">تلفن پشتیبانی</p>
+                  <a href={	el:${LANDLINE_PHONE}} className="block text-xs font-medium text-foreground/85 hover:text-primary transition-colors cursor-pointer">تلفن ثابت: {toPersianDigits(LANDLINE_PHONE)}</a>
+                  <a href={	el:${MOBILE_PHONE}} className="block text-xs font-medium text-foreground/85 hover:text-primary transition-colors cursor-pointer mt-1">همراه: {toPersianDigits(MOBILE_PHONE)} / {toPersianDigits(SUPPORT_PHONE)}</a>
                 </div>
               </li>
               <li className="flex items-start gap-2.5">
@@ -156,12 +140,12 @@ export default function Footer() {
                 <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/10">
                   <MapPin className="h-3 w-3 text-primary" />
                 </span>
-                <div className="space-y-1">
-                  <p className="text-[11px] text-muted-foreground/80">نشانی و کد پستی</p>
+                <div>
+                  <p className="text-[11px] text-muted-foreground/80">نشانی</p>
                   <p className="text-xs leading-relaxed text-foreground/85">
                     {toPersianDigits(SUPPORT_ADDRESS)}
                   </p>
-                  <p className="text-[11px] font-medium text-foreground/80">
+                  <p className="mt-1 text-[11px] font-medium text-foreground/80">
                     کد پستی: {toPersianDigits(POSTAL_CODE)}
                   </p>
                 </div>

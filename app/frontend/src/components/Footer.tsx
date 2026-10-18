@@ -5,7 +5,6 @@ import { toPersianDigits } from "@/lib/numerals";
 /** Support phone shown in the footer. Stored in ASCII, displayed in Persian digits. */
 const LANDLINE_PHONE = "054-33291359";
 const MOBILE_PHONE = "09907488203";
-const SUPPORT_PHONE = "09017488203";
 const POSTAL_CODE = "9818997001";
 const SUPPORT_EMAIL = "ghavidelheidarei81@gmail.com";
 const SUPPORT_ADDRESS = "استان : سیستان وبلوچستان - شهرستان : زاهدان - بخش : مرکزی - شهر : زاهدان - محله : شهرک جهاد - خیابان شهدای گمنام - کوچه میرمرادزهی11 - پلاک : 14.0 - طبقه : همکف";
@@ -117,8 +116,8 @@ export default function Footer() {
                 </span>
                 <div>
                   <p className="text-[11px] text-muted-foreground/80">تلفن پشتیبانی</p>
-                  <a href={	el:${LANDLINE_PHONE}} className="block text-xs font-medium text-foreground/85 hover:text-primary transition-colors cursor-pointer">تلفن ثابت: {toPersianDigits(LANDLINE_PHONE)}</a>
-                  <a href={	el:${MOBILE_PHONE}} className="block text-xs font-medium text-foreground/85 hover:text-primary transition-colors cursor-pointer mt-1">همراه: {toPersianDigits(MOBILE_PHONE)} / {toPersianDigits(SUPPORT_PHONE)}</a>
+                  <a href="tel:05433291359" className="block text-xs font-medium text-foreground/85 hover:text-primary transition-colors cursor-pointer">تلفن ثابت: {toPersianDigits(LANDLINE_PHONE)}</a>
+                  <a href="tel:09907488203" className="block text-xs font-medium text-foreground/85 hover:text-primary transition-colors cursor-pointer mt-1">همراه: {toPersianDigits(MOBILE_PHONE)}</a>
                 </div>
               </li>
               <li className="flex items-start gap-2.5">

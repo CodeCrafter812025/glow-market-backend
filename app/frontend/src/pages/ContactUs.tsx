@@ -2,7 +2,7 @@
 import InfoPageLayout, { InfoSection } from "@/components/InfoPageLayout";
 import { toPersianDigits } from "@/lib/numerals";
 
-const SUPPORT_PHONE = "054-33291359 | 09907488203 | 09017488203";
+const SUPPORT_PHONE = "054-33291359 | 09907488203";
 const SUPPORT_EMAIL = "ghavidelheidarei81@gmail.com";
 
 const channels = [

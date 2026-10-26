@@ -1,4 +1,6 @@
-// ─── Types ───────────────────────────────────────────────────────────────────
+﻿// --- Types ---
+
+export type RootCategory = "skin" | "hair" | "body";
 
 export interface Seller {
   id: number;
@@ -12,6 +14,7 @@ export interface RecommendationProduct {
   title: string;
   price: number;
   image: string;
+  rootCategory?: RootCategory;
   targetSkinType: string[];
   targetConcerns: string[];
   category: "پاک‌کننده" | "درمان اصلی" | "مرطوب‌کننده" | "سرم" | "ضد آفتاب" | "ماسک";
@@ -20,19 +23,18 @@ export interface RecommendationProduct {
 }
 
 export interface QuizAnswers {
-  skinType: string;       // پاسخ سوال ۱: نوع پوست
-  concern: string;        // پاسخ سوال ۲: دغدغه اصلی
-  sunExposure: string;    // پاسخ سوال ۳: تماس با آفتاب
-  sensitivity: string;    // پاسخ سوال ۴: حساسیت پوست
-  goal: string;           // پاسخ سوال ۵: هدف نهایی
+  rootCategory?: RootCategory;
+  skinType: string;
+  concern: string;
+  sunExposure: string;
+  sensitivity: string;
+  goal: string;
 }
 
 export interface ScoredProduct extends RecommendationProduct {
   matchScore: number;
   matchPercent: number;
 }
-
-// ─── Mock Sellers ────────────────────────────────────────────────────────────
 
 export const sellers: Seller[] = [
   { id: 1, brandName: "لومیر (Lumière)", isFounder: true },
@@ -43,12 +45,12 @@ export const sellers: Seller[] = [
   { id: 6, brandName: "هیدرا پلاس (Hydra Plus)", isFounder: false },
 ];
 
-// ─── Mock Products ───────────────────────────────────────────────────────────
-
 export const products: RecommendationProduct[] = [
+  // --- Skin Products ---
   {
     id: 101,
     sellerId: 5,
+    rootCategory: "skin",
     title: "ژل شست‌وشوی کنترل چربی با سالیسیلیک اسید",
     price: 320000,
     image: "https://mgx-backend-cdn.metadl.com/generate/images/1465854/2026-07-25/te7iclacajsa/product-serum-gold-cap.png",
@@ -61,6 +63,7 @@ export const products: RecommendationProduct[] = [
   {
     id: 102,
     sellerId: 2,
+    rootCategory: "skin",
     title: "سرم نیاسینامید ۱۰٪ + زینک",
     price: 450000,
     image: "https://mgx-backend-cdn.metadl.com/generate/images/1465854/2026-07-25/te7iecacajta/product-vitamin-c-serum.png",
@@ -73,6 +76,7 @@ export const products: RecommendationProduct[] = [
   {
     id: 103,
     sellerId: 6,
+    rootCategory: "skin",
     title: "ژل مرطوب‌کننده بدون چربی هیالورونیک اسید",
     price: 380000,
     image: "https://mgx-backend-cdn.metadl.com/generate/images/1465854/2026-07-25/te7idgqcajra/product-organic-face-cream.png",
@@ -85,6 +89,7 @@ export const products: RecommendationProduct[] = [
   {
     id: 104,
     sellerId: 1,
+    rootCategory: "skin",
     title: "سرم ویتامین سی ۲۰٪ روشن‌کننده",
     price: 520000,
     image: "https://mgx-backend-cdn.metadl.com/generate/images/1465854/2026-07-25/te7iecacajta/product-vitamin-c-serum.png",
@@ -97,6 +102,7 @@ export const products: RecommendationProduct[] = [
   {
     id: 105,
     sellerId: 3,
+    rootCategory: "skin",
     title: "کرم مرطوب‌کننده عمیق با سرامید و شی‌باتر",
     price: 480000,
     image: "https://mgx-backend-cdn.metadl.com/generate/images/1465854/2026-07-25/te7idgqcajra/product-organic-face-cream.png",
@@ -109,6 +115,7 @@ export const products: RecommendationProduct[] = [
   {
     id: 106,
     sellerId: 4,
+    rootCategory: "skin",
     title: "فوم شست‌وشوی ملایم گلاب و عسل",
     price: 280000,
     image: "https://mgx-backend-cdn.metadl.com/generate/images/1465854/2026-07-25/te7iczycajrq/product-rose-lip-gloss.png",
@@ -121,6 +128,7 @@ export const products: RecommendationProduct[] = [
   {
     id: 107,
     sellerId: 1,
+    rootCategory: "skin",
     title: "سرم رتینول ۰.۵٪ ضد چروک شبانه",
     price: 620000,
     image: "https://mgx-backend-cdn.metadl.com/generate/images/1465854/2026-07-25/te7iclacajsa/product-serum-gold-cap.png",
@@ -133,6 +141,7 @@ export const products: RecommendationProduct[] = [
   {
     id: 108,
     sellerId: 6,
+    rootCategory: "skin",
     title: "کرم ژلی آبرسان بدون عطر مناسب پوست حساس",
     price: 350000,
     image: "https://mgx-backend-cdn.metadl.com/generate/images/1465854/2026-07-25/te7idgqcajra/product-organic-face-cream.png",
@@ -145,6 +154,7 @@ export const products: RecommendationProduct[] = [
   {
     id: 109,
     sellerId: 5,
+    rootCategory: "skin",
     title: "ژل شست‌وشوی ملایم آلوورا مناسب انواع پوست",
     price: 250000,
     image: "https://mgx-backend-cdn.metadl.com/generate/images/1465854/2026-07-25/te7iczycajrq/product-rose-lip-gloss.png",
@@ -157,6 +167,7 @@ export const products: RecommendationProduct[] = [
   {
     id: 110,
     sellerId: 2,
+    rootCategory: "skin",
     title: "سرم آزلائیک اسید ۱۰٪ ضد لک و ضد جوش",
     price: 490000,
     image: "https://mgx-backend-cdn.metadl.com/generate/images/1465854/2026-07-25/te7iecacajta/product-vitamin-c-serum.png",
@@ -166,56 +177,118 @@ export const products: RecommendationProduct[] = [
     isSensitiveFriendly: true,
     targetGoals: ["clear", "matte"],
   },
+  // --- Hair Products ---
+  {
+    id: 201,
+    sellerId: 3,
+    rootCategory: "hair",
+    title: "شامپو تقویت‌کننده و ضدریزش کافئین و رزماری (فاقد سولفات)",
+    price: 340000,
+    image: "https://mgx-backend-cdn.metadl.com/generate/images/1465854/2026-07-25/te7iczycajrq/product-rose-lip-gloss.png",
+    targetSkinType: ["چرب", "معمولی", "مختلط", "خشک"],
+    targetConcerns: ["ریزش مو", "شوره و خارش"],
+    category: "پاک‌کننده",
+    isSensitiveFriendly: true,
+    targetGoals: ["clear", "glow", "matte"],
+  },
+  {
+    id: 202,
+    sellerId: 1,
+    rootCategory: "hair",
+    title: "تونیک و سرم پپتیدی محرک رشد و ترمیم ساقه مو",
+    price: 560000,
+    image: "https://mgx-backend-cdn.metadl.com/generate/images/1465854/2026-07-25/te7iclacajsa/product-serum-gold-cap.png",
+    targetSkinType: ["چرب", "خشک", "مختلط", "معمولی"],
+    targetConcerns: ["ریزش مو", "موخوره و آسیب", "خشکی و وز"],
+    category: "درمان اصلی",
+    isSensitiveFriendly: true,
+    targetGoals: ["glow", "hydrated", "clear"],
+  },
+  {
+    id: 203,
+    sellerId: 6,
+    rootCategory: "hair",
+    title: "ماسک موی آبرسان عمیق کراتین و روغن آرگان مراکشی",
+    price: 430000,
+    image: "https://mgx-backend-cdn.metadl.com/generate/images/1465854/2026-07-25/te7idgqcajra/product-organic-face-cream.png",
+    targetSkinType: ["خشک", "معمولی", "مختلط", "چرب"],
+    targetConcerns: ["خشکی و وز", "موخوره و آسیب"],
+    category: "مرطوب‌کننده",
+    isSensitiveFriendly: true,
+    targetGoals: ["hydrated", "glow"],
+  },
+  // --- Body Products ---
+  {
+    id: 301,
+    sellerId: 4,
+    rootCategory: "body",
+    title: "شامپو بدن گیاهی و صابون دست‌ساز جو دوسر و عسل",
+    price: 260000,
+    image: "https://mgx-backend-cdn.metadl.com/generate/images/1465854/2026-07-25/te7iczycajrq/product-rose-lip-gloss.png",
+    targetSkinType: ["خشک", "چرب", "معمولی", "مختلط"],
+    targetConcerns: ["آبرسانی", "جوش", "زبری و تیرگی"],
+    category: "پاک‌کننده",
+    isSensitiveFriendly: true,
+    targetGoals: ["hydrated", "clear"],
+  },
+  {
+    id: 302,
+    sellerId: 2,
+    rootCategory: "body",
+    title: "سرم و اسکراب لایه‌بردار بدن AHA ضد جوش و روشن‌کننده",
+    price: 410000,
+    image: "https://mgx-backend-cdn.metadl.com/generate/images/1465854/2026-07-25/te7iecacajta/product-vitamin-c-serum.png",
+    targetSkinType: ["خشک", "چرب", "معمولی", "مختلط"],
+    targetConcerns: ["جوش", "لک", "زبری و تیرگی"],
+    category: "درمان اصلی",
+    isSensitiveFriendly: true,
+    targetGoals: ["clear", "glow"],
+  },
+  {
+    id: 303,
+    sellerId: 6,
+    rootCategory: "body",
+    title: "لوسیون مرطوب‌کننده و ترمیم‌کننده بدن با اوره و شی‌باتر",
+    price: 370000,
+    image: "https://mgx-backend-cdn.metadl.com/generate/images/1465854/2026-07-25/te7idgqcajra/product-organic-face-cream.png",
+    targetSkinType: ["خشک", "چرب", "معمولی", "مختلط"],
+    targetConcerns: ["آبرسانی", "زبری و تیرگی"],
+    category: "مرطوب‌کننده",
+    isSensitiveFriendly: true,
+    targetGoals: ["hydrated", "glow"],
+  },
 ];
 
-// ─── Recommendation Engine ───────────────────────────────────────────────────
-
-/**
- * تبدیل امتیاز خام به درصد تطابق (حداکثر ۹۸٪)
- */
-export function scoreToPercent(score: number, maxPossible: number = 80): number {
+export function scoreToPercent(score: number, maxPossible: number = 85): number {
   const raw = Math.round((score / maxPossible) * 100);
-  return Math.min(raw, 98);
+  return Math.max(65, Math.min(raw, 98));
 }
 
-/**
- * فیلتر و امتیازدهی محصولات بر اساس پاسخ‌های کوئیز
- */
 export function getRecommendedProducts(answers: QuizAnswers): ScoredProduct[] {
-  const { skinType, concern, sensitivity, goal } = answers;
-
-  // آیا کاربر پوست بسیار حساس دارد؟
+  const { rootCategory = "skin", skinType, concern, sensitivity, goal } = answers;
   const isVerySensitive = sensitivity === "always";
-
   const scored: ScoredProduct[] = [];
 
   for (const product of products) {
-    // ─── حذف بر اساس عدم تطابق نوع پوست ───
-    if (!product.targetSkinType.includes(skinType)) {
+    if ((product.rootCategory || "skin") !== rootCategory) {
       continue;
     }
-
-    // ─── حذف محصولات نامناسب برای پوست بسیار حساس ───
+    if (skinType && !product.targetSkinType.includes(skinType)) {
+      continue;
+    }
     if (isVerySensitive && !product.isSensitiveFriendly) {
       continue;
     }
 
-    // ─── محاسبه امتیاز ───
-    let matchScore = 0;
-
-    // تطابق با دغدغه اصلی = ۵۰ امتیاز
+    let matchScore = 25;
     if (product.targetConcerns.includes(concern)) {
-      matchScore += 50;
+      matchScore += 40;
     }
-
-    // تطابق با هدف نهایی = ۳۰ امتیاز
     if (product.targetGoals.includes(goal)) {
-      matchScore += 30;
+      matchScore += 20;
     }
-
-    // امتیاز اضافه اگر محصول مناسب پوست حساس باشد و کاربر حساسیت دارد
     if (sensitivity === "sometimes" && product.isSensitiveFriendly) {
-      matchScore += 5;
+      matchScore += 10;
     }
 
     scored.push({
@@ -225,8 +298,6 @@ export function getRecommendedProducts(answers: QuizAnswers): ScoredProduct[] {
     });
   }
 
-  // مرتب‌سازی بر اساس امتیاز از بالا به پایین
   scored.sort((a, b) => b.matchScore - a.matchScore);
-
   return scored;
 }

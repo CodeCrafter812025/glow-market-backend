@@ -1,4 +1,4 @@
-import { Sparkles, ShoppingBag, Star, Shield, Droplets, Paintbrush } from "lucide-react";
+﻿import { Sparkles, ShoppingBag, Star, Shield, Droplets, Paintbrush } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useCartStore } from "@/store/cartStore";
 import { toast } from "sonner";
@@ -96,7 +96,7 @@ export default function ResultPage({ answers, recommendedProducts, onReset }: Re
           آنالیز هوشمند تکمیل شد
         </div>
         <h2 className="text-2xl sm:text-3xl font-bold" style={{ fontFamily: "'Vazirmatn', sans-serif" }}>
-          روتین پوستی اختصاصی شما
+          {answers.rootCategory === "hair" ? "روتین اختصاصی مراقبت از موی شما" : answers.rootCategory === "body" ? "روتین اختصاصی مراقبت از بدن شما" : "روتین پوستی اختصاصی شما"}
         </h2>
         <div className="flex items-center justify-center gap-3 flex-wrap">
           <span className="px-3 py-1.5 rounded-full bg-secondary/60 text-sm font-medium border border-border/30">

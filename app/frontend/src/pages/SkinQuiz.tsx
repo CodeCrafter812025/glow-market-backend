@@ -222,6 +222,18 @@ export default function SkinQuiz() {
     };
 
     const localResults = getRecommendedProducts(quizAnswers);
+    try {
+      localStorage.setItem(
+        "glowmarket_last_quiz",
+        JSON.stringify({
+          date: new Date().toLocaleDateString("fa-IR"),
+          answers: quizAnswers,
+          recommendations: localResults.slice(0, 3),
+        })
+      );
+    } catch {
+      // ignore storage errors
+    }
 
     try {
       const res = await fetch("/api/v1/smart-test/evaluate", {

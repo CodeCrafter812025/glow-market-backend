@@ -1,9 +1,13 @@
+﻿import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Package, CalendarHeart, Clock, CheckCircle2, Truck, ArrowLeft } from "lucide-react";
+import { Package, CalendarHeart, Clock, CheckCircle2, Truck, ArrowLeft, Sparkles, ShoppingBag } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import { useDataStore } from "@/store/dataStore";
 import { useAuthStore } from "@/store/authStore";
+import { useCartStore } from "@/store/cartStore";
+import { toast } from "sonner";
 import ProductImage from "@/components/ProductImage";
 
 function toPersianDigits(num: number | string): string {
@@ -43,17 +47,35 @@ function getBookingStatusColor(status: string) {
   }
 }
 
+function getRootCategoryLabel(cat?: string) {
+  if (cat === "hair") return "مراقبت از مو و کف سر";
+  if (cat === "body") return "مراقبت و بهداشت بدن";
+  return "مراقبت از پوست صورت";
+}
+
 export default function BuyerDashboard() {
   const navigate = useNavigate();
   const { orders, bookings } = useDataStore();
   const { user, isAuthenticated } = useAuthStore();
+  const addToCart = useCartStore((s) => s.addItem);
+  const [savedQuiz, setSavedQuiz] = useState<any>(null);
+
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem("glowmarket_last_quiz");
+      if (raw) {
+        setSavedQuiz(JSON.parse(raw));
+      }
+    } catch {
+      // ignore
+    }
+  }, []);
 
   return (
     <div className="min-h-screen bg-background" dir="rtl" style={{ fontFamily: "'Vazirmatn', sans-serif" }}>
       <Header />
 
       <main className="max-w-screen-lg mx-auto px-4 sm:px-6 py-8">
-        {/* Profile Header */}
         <div className="flex items-center justify-between mb-8">
           <div className="flex items-center gap-4">
             <div className="w-14 h-14 rounded-full bg-primary/10 border-2 border-primary/20 flex items-center justify-center">
@@ -79,26 +101,31 @@ export default function BuyerDashboard() {
           </button>
         </div>
 
-        {/* Tabs */}
         <Tabs defaultValue="orders" className="w-full">
-          <TabsList className="grid w-full grid-cols-2 h-12 rounded-xl bg-secondary/50 p-1">
+          <TabsList className="grid w-full grid-cols-3 h-12 rounded-xl bg-secondary/50 p-1">
             <TabsTrigger
               value="orders"
-              className="rounded-lg text-sm font-medium data-[state=active]:bg-background data-[state=active]:shadow-sm cursor-pointer gap-2"
+              className="rounded-lg text-xs sm:text-sm font-medium data-[state=active]:bg-background data-[state=active]:shadow-sm cursor-pointer gap-1.5"
             >
               <Package className="h-4 w-4" />
               سفارش‌های من
             </TabsTrigger>
             <TabsTrigger
               value="bookings"
-              className="rounded-lg text-sm font-medium data-[state=active]:bg-background data-[state=active]:shadow-sm cursor-pointer gap-2"
+              className="rounded-lg text-xs sm:text-sm font-medium data-[state=active]:bg-background data-[state=active]:shadow-sm cursor-pointer gap-1.5"
             >
               <CalendarHeart className="h-4 w-4" />
               رزروهای من
             </TabsTrigger>
+            <TabsTrigger
+              value="quiz"
+              className="rounded-lg text-xs sm:text-sm font-medium data-[state=active]:bg-background data-[state=active]:shadow-sm cursor-pointer gap-1.5"
+            >
+              <Sparkles className="h-4 w-4" />
+              تست هوشمند من
+            </TabsTrigger>
           </TabsList>
 
-          {/* Orders Tab */}
           <TabsContent value="orders" className="mt-6">
             {orders.length === 0 ? (
               <div className="text-center py-16 space-y-4">
@@ -123,7 +150,6 @@ export default function BuyerDashboard() {
                     key={order.id}
                     className="bg-card border border-border/50 rounded-2xl p-5 space-y-4 hover:shadow-sm transition-shadow"
                   >
-                    {/* Order header */}
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
                         {getOrderStatusIcon(order.status)}
@@ -141,7 +167,6 @@ export default function BuyerDashboard() {
                       </span>
                     </div>
 
-                    {/* Order items */}
                     <div className="flex items-center gap-3 overflow-x-auto pb-1">
                       {order.items.map((item) => (
                         <div key={item.id} className="w-12 flex-shrink-0">
@@ -159,7 +184,6 @@ export default function BuyerDashboard() {
                       </span>
                     </div>
 
-                    {/* Order footer */}
                     <div className="flex items-center justify-between pt-2 border-t border-border/30">
                       <span className="text-xs text-muted-foreground">مبلغ کل</span>
                       <span className="text-sm font-bold text-primary">
@@ -172,7 +196,6 @@ export default function BuyerDashboard() {
             )}
           </TabsContent>
 
-          {/* Bookings Tab */}
           <TabsContent value="bookings" className="mt-6">
             {bookings.length === 0 ? (
               <div className="text-center py-16 space-y-4">
@@ -197,7 +220,6 @@ export default function BuyerDashboard() {
                     key={booking.id}
                     className="bg-card border border-border/50 rounded-2xl p-5 space-y-4 hover:shadow-sm transition-shadow"
                   >
-                    {/* Booking header */}
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
                         <img
@@ -215,7 +237,6 @@ export default function BuyerDashboard() {
                       </span>
                     </div>
 
-                    {/* Booking details */}
                     <div className="grid grid-cols-3 gap-3 bg-secondary/30 rounded-xl p-3">
                       <div className="text-center">
                         <p className="text-[11px] text-muted-foreground">تاریخ</p>
@@ -233,12 +254,97 @@ export default function BuyerDashboard() {
                       </div>
                     </div>
 
-                    {/* Booking ID */}
                     <div className="flex items-center justify-between pt-1">
                       <span className="text-[11px] text-muted-foreground">شماره رزرو: {booking.id}</span>
                     </div>
                   </div>
                 ))}
+              </div>
+            )}
+          </TabsContent>
+
+          <TabsContent value="quiz" className="mt-6">
+            {!savedQuiz ? (
+              <div className="text-center py-16 space-y-4">
+                <div className="w-16 h-16 mx-auto rounded-full bg-primary/10 flex items-center justify-center">
+                  <Sparkles className="h-7 w-7 text-primary" />
+                </div>
+                <div className="space-y-1">
+                  <p className="text-base font-medium text-muted-foreground">هنوز تست هوشمند را انجام نداده‌اید</p>
+                  <p className="text-sm text-muted-foreground/70">
+                    با پاسخ به چند سوال کوتاه، روتین اختصاصی پوست، مو یا بدن خود را دریافت کنید
+                  </p>
+                </div>
+                <Button onClick={() => navigate("/skin-quiz")} className="rounded-full px-6 gap-2 cursor-pointer">
+                  <Sparkles className="h-4 w-4" />
+                  شروع تست هوشمند
+                </Button>
+              </div>
+            ) : (
+              <div className="space-y-6">
+                <div className="bg-card border border-primary/20 rounded-2xl p-5 space-y-4">
+                  <div className="flex items-center justify-between flex-wrap gap-2">
+                    <div className="flex items-center gap-2">
+                      <Sparkles className="h-5 w-5 text-primary" />
+                      <h3 className="text-base font-bold">
+                        {getRootCategoryLabel(savedQuiz.answers?.rootCategory)}
+                      </h3>
+                    </div>
+                    <span className="text-xs text-muted-foreground">{savedQuiz.date}</span>
+                  </div>
+                  <div className="flex flex-wrap gap-2 text-xs">
+                    {savedQuiz.answers?.skinType && (
+                      <span className="px-3 py-1 rounded-full bg-secondary font-medium">
+                        تایپ: {savedQuiz.answers.skinType}
+                      </span>
+                    )}
+                    {savedQuiz.answers?.concern && (
+                      <span className="px-3 py-1 rounded-full bg-secondary font-medium">
+                        دغدغه: {savedQuiz.answers.concern}
+                      </span>
+                    )}
+                  </div>
+                  <div className="pt-2">
+                    <Button variant="outline" size="sm" onClick={() => navigate("/skin-quiz")} className="rounded-full text-xs cursor-pointer">
+                      انجام مجدد تست
+                    </Button>
+                  </div>
+                </div>
+
+                {Array.isArray(savedQuiz.recommendations) && savedQuiz.recommendations.length > 0 && (
+                  <div className="space-y-3">
+                    <h4 className="text-sm font-bold">محصولات پیشنهادی برای شما:</h4>
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                      {savedQuiz.recommendations.map((prod: any) => (
+                        <div key={prod.id} className="bg-card border border-border/50 rounded-2xl p-4 space-y-3 flex flex-col justify-between">
+                          <div className="space-y-2">
+                            <ProductImage src={prod.image} alt={prod.title} category={prod.category} seed={prod.id} rounded="xl" />
+                            <p className="text-xs font-bold line-clamp-2">{prod.title}</p>
+                            <p className="text-xs text-primary font-bold">{formatPrice(prod.price)} تومان</p>
+                          </div>
+                          <Button
+                            size="sm"
+                            variant="outline"
+                            className="w-full rounded-full text-xs gap-1.5 cursor-pointer"
+                            onClick={() => {
+                              addToCart({
+                                id: prod.id,
+                                title: prod.title,
+                                price: prod.price / 1000,
+                                image: prod.image,
+                                quantity: 1,
+                              });
+                              toast.success("به سبد خرید اضافه شد");
+                            }}
+                          >
+                            <ShoppingBag className="h-3.5 w-3.5" />
+                            افزودن به سبد
+                          </Button>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             )}
           </TabsContent>

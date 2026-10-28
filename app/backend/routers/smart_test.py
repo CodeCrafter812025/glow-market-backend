@@ -63,7 +63,17 @@ class SmartTestSubmission(BaseModel):
 def _split_tags(raw: Optional[str]) -> List[str]:
     if not raw:
         return []
-    return [t.strip().lower() for t in str(raw).replace("\u060c", ",").split(",") if t.strip()]
+    cleaned = str(raw).strip()
+    if cleaned.startswith("[") and cleaned.endswith("]"):
+        try:
+            parsed = json.loads(cleaned)
+            if isinstance(parsed, list):
+                return [str(t).strip().lower() for t in parsed if str(t).strip()]
+        except Exception:
+            pass
+    for ch in ("[", "]", '"', "'", "\u060c"):
+        cleaned = cleaned.replace(ch, "," if ch == "\u060c" else "")
+    return [t.strip().lower() for t in cleaned.split(",") if t.strip()]
 
 
 @router.get("/questions")
@@ -185,3 +195,30 @@ async def evaluate_smart_test(
         "derived_tags": derived_tags,
         "recommendations": top_recommendations,
     }
+
+@router.get("/history")
+async def get_recent_test_history(
+    limit: int = 5,
+    db: AsyncSession = Depends(get_db),
+):
+    """Return latest smart test history entries for buyer profile review."""
+    stmt = select(UserTestHistory).order_by(UserTestHistory.id.desc()).limit(min(limit, 20))
+    rows = (await db.execute(stmt)).scalars().all()
+    items = []
+    for r in rows:
+        try:
+            ans = json.loads(r.answers_json) if r.answers_json else {}
+        except Exception:
+            ans = {}
+        try:
+            tags = json.loads(r.derived_tags_json) if r.derived_tags_json else []
+        except Exception:
+            tags = []
+        items.append({
+            "id": r.id,
+            "root_category": r.root_category,
+            "answers": ans,
+            "derived_tags": tags,
+            "created_at": r.created_at.isoformat() if r.created_at else None,
+        })
+    return {"items": items, "total": len(items)}

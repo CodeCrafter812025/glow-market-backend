@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+﻿import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { z } from 'zod';
 import { Button } from '@/components/ui/button';
@@ -22,8 +22,8 @@ import {
 } from '@/lib/numerals';
 
 const SKIN_TYPES = ['چرب', 'خشک', 'مختلط', 'معمولی'] as const;
-const CONCERNS = ['جوش', 'لک', 'چروک', 'آبرسانی', 'منافذ باز', 'تیرگی'] as const;
-const CATEGORIES = ['پاک‌کننده', 'درمان اصلی', 'مرطوب‌کننده', 'سرم', 'ضد آفتاب', 'ماسک'] as const;
+const CONCERNS = ['جوش', 'لک', 'چروک', 'آبرسانی', 'منافذ باز', 'تیرگی', 'ریزش مو', 'خشکی و وز', 'شوره و خارش', 'موخوره و آسیب', 'زبری و تیرگی'] as const;
+const CATEGORIES = ['پاک‌کننده', 'درمان اصلی', 'مرطوب‌کننده', 'سرم', 'ضد آفتاب', 'ماسک', 'شامپو و مراقبت مو', 'لوسیون و بهداشت بدن'] as const;
 const GOALS = ['matte', 'clear', 'glow', 'hydrated'] as const;
 
 // ─── Validation Schemas ──────────────────────────────────────────────────────
@@ -229,9 +229,9 @@ export default function AdminAddData() {
         price: Number(result.data.price),
         image_url: result.data.image_url || undefined,
         description: result.data.description || undefined,
-        target_skin_type: JSON.stringify(result.data.target_skin_type),
-        target_concerns: JSON.stringify(result.data.target_concerns),
-        target_goals: JSON.stringify(result.data.target_goals),
+        target_skin_type: result.data.target_skin_type.join(', '),
+        target_concerns: result.data.target_concerns.join(', '),
+        target_goals: result.data.target_goals.join(', '),
         category: result.data.category ? result.data.category : 'سرم',
         is_sensitive_friendly: result.data.is_sensitive_friendly,
         rating: 0,
